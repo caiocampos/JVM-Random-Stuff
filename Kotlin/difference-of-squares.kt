@@ -8,12 +8,14 @@ fun sumOfSquares(n: Int): Long {
 }
 
 class Squares(n: Int) {
-    private var num: Int = n
+    var number: Int = n
         set(value) {
             field = value
             squareSum = squareOfSum(value)
             sumSquare = sumOfSquares(value)
         }
+        get() = number
+        
     private var squareSum: Long = squareOfSum(n)
     private var sumSquare: Long = sumOfSquares(n)
 
@@ -25,9 +27,6 @@ class Squares(n: Int) {
 
     val difference: Long
         get() = squareSum - sumSquare
-
-    val number: Int
-        get() = num
 }
 
 fun main() {
@@ -36,7 +35,7 @@ fun main() {
     println("Sum of squares: ${squares.sumOfSquares}")
     println("Difference: ${squares.difference}")
 
-    squares = Squares(10)
+    squares.number = 10
     println("Square of sum (after change): ${squares.squareOfSum}")
     println("Sum of squares (after change): ${squares.sumOfSquares}")
     println("Difference (after change): ${squares.difference}")

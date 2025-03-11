@@ -11,3 +11,9 @@ object CollatzConjecture {
         return steps
     }
 }
+
+fun main() {
+    for (i in 1..10) {
+    	println("Collatz conjecture steps: ${i} ${CollatzConjecture.steps(i)}")
+    }
+}

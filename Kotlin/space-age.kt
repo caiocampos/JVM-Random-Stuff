@@ -1,4 +1,4 @@
-const val EARTH = 31557600L
+const val EARTH: Double = 31557600.0
 val YEAR = hashMapOf(
     "earth" to EARTH,
     "mercury" to EARTH * 0.2408467,
@@ -12,7 +12,7 @@ val YEAR = hashMapOf(
 
 class SpaceAge(val seconds: Long) {
     private fun age(planet: String): Double {
-        return (seconds / (YEAR.getValue(planet) ?: 1.0)).toDouble().let { it -> "%.2f".format(it) }
+        return seconds / (YEAR.getValue(planet) ?: 1.0)
     }
 
     fun onEarth(): Double {
@@ -50,5 +50,9 @@ class SpaceAge(val seconds: Long) {
 
 fun main() {
     val spaceAge = SpaceAge(31557600L)
-    println(spaceAge.onEarth())
+    println("Space age on Mercury: ${spaceAge.onMercury()}")
+    println("Space age on Earth: ${spaceAge.onEarth()}")
+    println("Space age on Mars: ${spaceAge.onMars()}")
+    println("Space age on Jupiter: ${spaceAge.onJupiter()}")
+    println("Space age on Uranus: ${spaceAge.onUranus()}")
 }
